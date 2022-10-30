@@ -1,10 +1,12 @@
 <template>
   <div id="app">
+    <BarraPorcentagem v-bind:allTasks="textTaskCard" />
     <div id="search-form">
       <input
+        placeholder="Nova Tarefa ?"
         v-bind:value="textTask"
         v-on:change="captureTxtSearch"
-        type="search"
+        type="text"
       />
       <button v-on:click="sendTxtCard">+</button>
     </div>
@@ -17,10 +19,12 @@
 
 <script>
 import Task from "./components/Task.vue";
+import BarraPorcentagem from "./components/BarraPorcentagem.vue";
 export default {
   name: "App",
   components: {
     Task,
+    BarraPorcentagem,
   },
   data() {
     return {
@@ -33,9 +37,17 @@ export default {
       this.textTask = event.target.value;
     },
     sendTxtCard() {
-      this.textTask.length > 0 ? this.textTaskCard.push(this.textTask) : null;
+      this.textTask.length > 0
+        ? this.textTaskCard.push({ task: this.textTask, complete: false })
+        : null;
       this.textTask = "";
+      localStorage.setItem("tasks", JSON.stringify(this.textTaskCard));
     },
+  },
+  created() {
+    const localTasks = JSON.parse(localStorage.getItem("tasks"));
+    console.log(localTasks);
+    this.textTaskCard.push(...localTasks);
   },
 };
 </script>
@@ -46,6 +58,7 @@ html {
 }
 body {
   height: 100%;
+  background-color: #2c3e50;
 }
 #app {
   padding: 0%;
@@ -68,10 +81,35 @@ body {
 }
 #search-form {
   display: flex;
-  width: 30%;
+  justify-content: space-evenly;
+  width: 40%;
 }
 input {
-  width: 100%;
+  color: white;
+  width: 95%;
   padding: 5px;
+  background-color: transparent;
+  outline-style: none;
+  border: 1px solid white;
+  font-size: 1em;
+}
+button {
+  font-size: 1.5em;
+  min-width: 5%;
+  background-color: #00a8ff;
+  color: white;
+  border: none;
+  border: 1px solid white;
+}
+@media (max-width: 768px) {
+  #app {
+    gap: 30px;
+  }
+  #search-form {
+    width: 90%;
+  }
+  button {
+    width: 10%;
+  }
 }
 </style>

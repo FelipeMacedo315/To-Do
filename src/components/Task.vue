@@ -1,21 +1,15 @@
 <template>
   <div id="all-cards">
     <section
-      v-bind:class="
-        taskStatusClass ? 'card-task-completed' : 'card-task-incompleted'
-      "
+      v-bind:class="contentTask[index].complete ? 'card-task-completed' : 'card-task-incompleted'"
       v-bind:key="index"
       v-for="(task, index) in contentTask"
-      @dblclick="changeStatusTask"
+      @dblclick="changeStatusTask(index)"
     >
       <div class="close-icon">
-        <img
-          v-on:click="deleteTask(index)"
-          src="../assets/icons8-close-64.png"
-          alt="close-icon"
-        />
+        <img v-on:click="deleteTask(index)" src="../assets/icons8-close-64.png" alt="close-icon" />
       </div>
-      <p>{{ task }} indice {{ index }}</p>
+      <p>{{ task.task }}</p>
     </section>
   </div>
 </template>
@@ -28,12 +22,21 @@ export default {
       taskStatusClass: false,
     };
   },
+
   methods: {
     deleteTask(index) {
       this.contentTask.splice(index, 1);
     },
-    changeStatusTask() {
-      this.taskStatusClass = !this.taskStatusClass;
+    changeStatusTask(indexCard) {
+      this.contentTask[indexCard].complete = !this.contentTask[indexCard].complete;
+    },
+  },
+  watch: {
+    contentTask: {
+      deep: true,
+      handler() {
+        localStorage.setItem("tasks", JSON.stringify(this.contentTask));
+      },
     },
   },
 };
@@ -57,8 +60,10 @@ export default {
 }
 .card-task-completed {
   border-radius: 10px;
-  background-color: greenyellow;
+  background-color: rgb(39, 184, 39);
   color: white;
+  font-weight: bolder;
+  text-decoration: line-through black;
   width: 100%;
   padding: 20px;
   user-select: none;
@@ -69,5 +74,13 @@ export default {
 }
 .close-icon img {
   height: 15px;
+}
+@media (max-width: 768px) {
+  #all-cards {
+    padding: 0% 10%;
+    display: grid;
+    grid-template-columns: 70%;
+    grid-row-gap: 10%;
+  }
 }
 </style>
