@@ -1,19 +1,34 @@
-# tarefas
+# Lista de Tarefas
 
-## Project setup
+Lista de afazeres
+
+## 🚀 Começando
+
+Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
+
+- Tenha o NodeJs em sua máquina local
+- Clone este repositório
+- Use o comando
+
 ```
-npm install
+ "npm run serve"
 ```
 
-### Compiles and hot-reloads for development
+E veja o projeto rodando localmente no endereço
+
 ```
-npm run serve
+http://localhost:8080
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## 🛠️ Construído com
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+![JavaScript-Logo](./src/assets/ReadmeIcons/javascriptLogo.png "Javascript-Logo") ![Vue-Icon](/src/assets/ReadmeIcons/vueLogo.png "Logo-VueJs")![Html-Icon](/src/assets/ReadmeIcons/htmlLogo.png "Logo-Html") ![Css-Logo](./src/assets/ReadmeIcons/cssIcon.png "Css-Logo")
+
+- Javascipt
+- VueJs
+- Html
+- Css
+
+## ![deploy-logo](./src/assets//ReadmeIcons/deployLogo.png) Veja o em produção
+
+[Clique aqui para ver o projeto em funcionamento](https://todo-psi-azure.vercel.app/)
