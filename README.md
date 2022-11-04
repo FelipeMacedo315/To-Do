@@ -1,6 +1,14 @@
 # Lista de Tarefas
 
-Lista de afazeres
+Anote suas tarefas e tenha seu dia mais organizado.
+
+!['Foto-Tarefas'](./src/assets/ReadmeIcons/foto_tarefas2.png)
+
+!['Gif-Tarefas'](./src/assets/ReadmeIcons/tarefas%20-%20Google%20Chrome%202022-11-03%2011-35-50.gif)
+
+##### Design responsivo e armazenamento local no navegador usando Local Storage.
+
+!['teste'](./src/assets/ReadmeIcons/tarefasReadmeMobile.gif)
 
 ## 🚀 Começando
 
@@ -31,4 +39,4 @@ http://localhost:8080
 
 ## ![deploy-logo](./src/assets//ReadmeIcons/deployLogo.png) Veja o em produção
 
-[Clique aqui para ver o projeto em funcionamento](https://todo-psi-azure.vercel.app/)
+<a href="https://todo-psi-azure.vercel.app/" target="_blank">Clique aqui para ver o projeto em funcionamento </a>
